@@ -4,7 +4,8 @@
   "description": "Lorem ipsum dolor sit amet.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/server.js"
   },
   "author": "Sajidur Rahman",
   "license": "ISC",
@@ -20,6 +21,8 @@
     "prettier": "^2.6.2"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0"
   }
 }
