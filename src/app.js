@@ -1,13 +1,21 @@
-const express = require('express');
+const express = require('express')
+const morgan = require('morgan')
 
-const app = express();
+const app = express()
+const roleRouters = require('./api/roleRoutes')
 
+// middleware
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'))
+}
+app.use(express.json())
+
+// root route
 app.get('/', (req, res) => {
-  res.send('Hello node');
-});
+    res.json({ msg: 'Node blog api.' })
+})
 
-const port = 8000;
+// routers middleware
+app.use('/api/v1', roleRouters)
 
-app.listen(port, () => {
-  console.log(`server running on port ${port}...`);
-});
+module.exports = app
